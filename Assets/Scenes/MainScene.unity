@@ -17447,8 +17447,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stageIndex: 0
-  health: 500
-  maxHealth: 500
+  health: 100
+  maxHealth: 100
   player: {fileID: 860880246}
   hpBar: {fileID: 1858122052}
   restartBtn: {fileID: 990676871}
