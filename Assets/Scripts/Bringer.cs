@@ -57,6 +57,8 @@ public class Bringer : MonoBehaviour, IObject
         //アニメーション確認
         animStateInfo = Animator.GetCurrentAnimatorStateInfo(0);
         currentAnimTime = animStateInfo.normalizedTime * animStateInfo.length;
+        if (animStateInfo.IsName("Death"))
+            return;
         if (spell.activeSelf){
         spellAnimStateInfo = spellAnimator.GetCurrentAnimatorStateInfo(0);
         currentSpellAnimTime = spellAnimStateInfo.normalizedTime * spellAnimStateInfo.length;

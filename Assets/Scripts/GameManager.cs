@@ -92,14 +92,10 @@ public class GameManager : MonoBehaviour
         // SpriteRenderer spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
         Color originalColor = spriteRenderer.color;
         // Animator animator = gameObject.GetComponent<Animator>();
-        float fadeDuration = 1f;
+        float fadeDuration = 3f;
 
-        if (animator != null){
+        if (animator != null)
             animator.SetTrigger("onDied");
-            animStateInfo = animator.GetCurrentAnimatorStateInfo(0);
-            fadeDuration = animStateInfo.length;
-        } else
-            fadeDuration = 1f;
 
         float elapsedTime = 0f;
 
@@ -115,8 +111,6 @@ public class GameManager : MonoBehaviour
             restartBtn.SetActive(true);
             Time.timeScale = 0;
         }
-        else 
-            gameObject.SetActive(false);
     }
 
 }

@@ -42,6 +42,8 @@ public class Skeleton : MonoBehaviour, IObject
         //アニメーション確認
         animStateInfo = Animator.GetCurrentAnimatorStateInfo(0);
         currentAnimTime = animStateInfo.normalizedTime * animStateInfo.length;
+        if (animStateInfo.IsName("Death"))
+            return;
 
 
         //感知範囲
@@ -64,7 +66,7 @@ public class Skeleton : MonoBehaviour, IObject
                             Animator.SetTrigger("onAttack1");
                             bsaCurTime = bsaCoolTime;
                         } else {
-                            if (bsaCurTime > 0.5f)
+                            if (bsaCurTime > 0.5f && animStateInfo.IsName("Death"))
                                 Animator.SetBool("onShield", true);
                             bsaCurTime -= Time.deltaTime;
                         }
@@ -160,8 +162,8 @@ public class Skeleton : MonoBehaviour, IObject
 
     public void OnDamaged (Vector2 targetPos, int damageAmount) {
         if (gameObject.layer == 3)
-        gameObject.layer = 9;
         currentHealth -= (damageAmount - shield);
+        gameObject.layer = 9;
         if (currentHealth <= 0){
             Die();
             return;

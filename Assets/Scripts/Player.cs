@@ -31,6 +31,10 @@ public class Player : MonoBehaviour, IObject{
 
     private void Update() {
 
+        animStateInfo = Animator.GetCurrentAnimatorStateInfo(0);
+        if (animStateInfo.IsName("Death"))
+            return;
+
         // Jump
         if (Input.GetButtonDown("Jump") && !Animator.GetBool("isJumping")) {
             rigid.AddForce(Vector2.up * jumpPower, ForceMode2D.Impulse);
@@ -86,6 +90,8 @@ public class Player : MonoBehaviour, IObject{
 
         //アニメーション確認
         animStateInfo = Animator.GetCurrentAnimatorStateInfo(0);
+        if (animStateInfo.IsName("Death"))
+            return;
 
         //공격 애니메이션
         if (animStateInfo.IsName("Attack")){
