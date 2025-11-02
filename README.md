@@ -27,7 +27,7 @@
 
 1.  GitHubからリポジトリをクローンします。
     ```bash
-    git clone [ここにGitHubリポジトリのURLを挿入]
+    git clone https://github.com/HSM2622/2D-Unity-Game.git
     ```
 2.  Unity Hubを開き、プロジェクトを登録します。
 3.  `Assets/Scenes/MainScene.unity` ファイルをダブルクリックして開きます。
